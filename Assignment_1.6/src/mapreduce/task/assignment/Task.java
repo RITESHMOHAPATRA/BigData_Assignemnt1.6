@@ -15,14 +15,16 @@ public class Task {
 		Configuration conf = new Configuration();
 		Job job = new Job(conf, "Assignmnet1.6");
 		job.setJarByClass(Task.class);
-
+                //Key is LongWritable as it is the index
 		job.setMapOutputKeyClass(LongWritable.class);
+		//Value is Text as the whole string is required
 		job.setMapOutputValueClass(Text.class);
-
+                
+                //Key is LongWritable as it is the index
 		job.setOutputKeyClass(LongWritable.class);
+		//Value is Text as the whole string is required
 		job.setOutputValueClass(Text.class);
 		job.setMapperClass(TaskMapper.class);
-		//job.setReducerClass(TaskReducer.class);
 		 
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);

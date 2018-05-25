@@ -15,6 +15,7 @@ public class TaskMapper extends Mapper<LongWritable, Text,LongWritable,Text> {
 		
 		String company = lineArray[0];
 		String product = lineArray[1];
+		//Checking if company name or product name must not equal to NA
 		if(!(company.equals("NA")||product.equals("NA")))
 		{
 			context.write(key,value);
